@@ -2,28 +2,24 @@
   "name": "palett-the-color-generator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Emery-E-Lee.github.io/ColorPalette/",
+  "homepage": "https://emery-e-Lee.github.io/ColorPalette/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy-gh-pages": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add -f out/ && git checkout -b temp-for-deploy-gh-pages && git commit -m \"Deploy Next.js to gh-pages\" && git subtree split --prefix out -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages && git checkout main && git branch -D temp-for-deploy-gh-pages"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.2",
     "axios": "^0.27.2",
-    "cloudinary": "^1.32.0",
-    "formidable": "^2.0.1",
     "gh-pages": "^4.0.0",
     "next": "12.3.1",
     "node-vibrant": "^3.2.1-alpha.1",
     "react": "18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "18.2.0",
-    "react-dropzone": "^14.2.2",
-    "react-hot-toast": "^2.4.0",
     "react-toastify": "^9.0.8"
   },
   "devDependencies": {
